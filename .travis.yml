@@ -1,12 +1,16 @@
 language: generic 
+
+# build scripts
 sudo: required
 services: 
   - docker
 
+# pre-work to run test of the app
 before_install:
   - docker build -t honglin/docker-react -f Dockerfile.dev .
 
+# actual commands to run
 script:
   - docker run -e CI=true honglin/docker-react npm run test
 
-# build scripts
+# deploy scripts only when master branch gets merged

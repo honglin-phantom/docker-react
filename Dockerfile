@@ -8,5 +8,6 @@ RUN npm run build
 
 # multiple steps configuration - run phase (automatically dump previously built phase)
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
